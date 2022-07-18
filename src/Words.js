@@ -1,4 +1,5 @@
-import wordBank from "./wordle-bank.txt";
+import wordBank from "./wordle-allowed-guesses.txt";
+import chosenWords from "./wordle-bank.txt";
 
 export const defaultBoard = [
   ["", "", "", "", ""],
@@ -8,7 +9,6 @@ export const defaultBoard = [
   ["", "", "", "", ""],
   ["", "", "", "", ""],
 ];
-
 
 export const generateWordSet = async () => {
   let wordSet;
@@ -24,7 +24,7 @@ export const generateWordSet = async () => {
 
 export const generateNewWord = async () => {
   let wordArr;
-  await fetch(wordBank)
+  await fetch(chosenWords)
     .then((response) => response.text())
     .then((result) => {
       wordArr = result.split("\n");
