@@ -8,7 +8,11 @@ const Keyboard = () => {
   const keys3 = ["ENTER", "Z", "X", "C", "V", "B", "N", "M"];
 
   const isValid = (str) => {
-    return str === "Enter" || str === "Backspace" || str.match(/[a-z]/i);
+    return (
+      (str.length === 1 && str.match(/[a-z]/i)) ||
+      str === "ENTER" ||
+      str === "BACKSPACE"
+    );
   };
 
   const handleKeyBoard = useCallback((event) => {
